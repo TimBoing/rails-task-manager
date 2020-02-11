@@ -1,0 +1,13 @@
+<h1><%= @task.title %></h1>
+
+<div class="container">
+  <%= link_to "Edit this task", task_edit_path(@task) %>
+  <div class="task-full-details"><%= @task.details %></div>
+
+  <% is_checked = @task.completed ? "checked" : "" %>
+  <div class="task-card <%= is_checked %>">
+    <input class="task-checkbox" type="checkbox" name="<%= @task.id %>" <%= is_checked %>>
+    <div class="task-description"><%= "This task is#{is_checked == 'checked' ? '' : ' not'} completed" %></div>
+  </div>
+  <%= link_to 'Back to list', tasks_path %>
+</div>
